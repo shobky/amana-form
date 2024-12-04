@@ -1,0 +1,223 @@
+<div dir="rtl">
+    <main class="max-w-[90vw] mx-auto py-8 px-4">
+        <div class="px-12 py-6 rounded-[4rem] border-[#16b4a5] border-4">
+            <div class="text-center mb-8">
+                <div class="w-12 h-12 bg-[#16b4a5] rounded-full mx-auto flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                </div>
+                <h2 class="text-lg font-semibold text-[#1b665b]">تسجيل مستخدم</h2>
+            </div>
+
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="space-y-6">
+                <div class="grid grid-cols-2 justify-between gap-x-6 gap-y-8">
+                    <!-- Row 1 -->
+                    <div class="flex gap-4">
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="engineerName">
+                                اسم المهندس / المهندسة 
+                                <span class="text-red-500 text-xs">حسب الهيئة الهندسية</span>
+                            </label>
+                            <input 
+                                id="engineerName" 
+                                formControlName="engineerName" 
+                                class="bg-gray-50 border shadow-md p-1"
+                                [class.border-red-500]="isFieldInvalid('engineerName')"
+                            />
+                            <small *ngIf="isFieldInvalid('engineerName')" class="text-red-500">
+                                {{ getErrorMessage('engineerName') }}
+                            </small>
+                        </div>
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="qualification">المؤهل الدراسي</label>
+                            <input 
+                                id="qualification" 
+                                formControlName="qualification" 
+                                class="bg-gray-50 border shadow-md p-1"
+                                [class.border-red-500]="isFieldInvalid('qualification')"
+                            />
+                            <small *ngIf="isFieldInvalid('qualification')" class="text-red-500">
+                                {{ getErrorMessage('qualification') }}
+                            </small>
+                        </div>
+                    </div>
+            
+                    <!-- Row 2 -->
+                    <div class="flex gap-4">
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="jobTitle">المسمى الوظيفي بالعقد</label>
+                            <input 
+                                id="jobTitle" 
+                                formControlName="jobTitle" 
+                                class="bg-gray-50 border shadow-md p-1"
+                                [class.border-red-500]="isFieldInvalid('jobTitle')"
+                            />
+                            <small *ngIf="isFieldInvalid('jobTitle')" class="text-red-500">
+                                {{ getErrorMessage('jobTitle') }}
+                            </small>
+                        </div>
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="yearsOfExperience">عدد سنوات الخبرة</label>
+                            <input 
+                                id="yearsOfExperience" 
+                                formControlName="yearsOfExperience" 
+                                class="bg-gray-50 border shadow-md p-1"
+                                [class.border-red-500]="isFieldInvalid('yearsOfExperience')"
+                            />
+                            <small *ngIf="isFieldInvalid('yearsOfExperience')" class="text-red-500">
+                                {{ getErrorMessage('yearsOfExperience') }}
+                            </small>
+                        </div>
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="contractNumber">رقم العقد</label>
+                            <input 
+                                id="contractNumber" 
+                                formControlName="contractNumber" 
+                                class="bg-gray-50 border shadow-md p-1"
+                                [class.border-red-500]="isFieldInvalid('contractNumber')"
+                            />
+                            <small *ngIf="isFieldInvalid('contractNumber')" class="text-red-500">
+                                {{ getErrorMessage('contractNumber') }}
+                            </small>
+                        </div>
+                    </div>
+            
+                    <!-- Row 3 -->
+                    <div class="flex gap-4">
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="visualID">رقم الهوية البصرية</label>
+                            <input 
+                                id="visualID" 
+                                formControlName="visualID" 
+                                class="bg-gray-50 border shadow-md p-1"
+                                [class.border-red-500]="isFieldInvalid('visualID')"
+                            />
+                            <small *ngIf="isFieldInvalid('visualID')" class="text-red-500">
+                                {{ getErrorMessage('visualID') }}
+                            </small>
+                        </div>
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="nationality">الجنسية</label>
+                            <input 
+                                id="nationality" 
+                                formControlName="nationality" 
+                                class="bg-gray-50 border shadow-md p-1"
+                                [class.border-red-500]="isFieldInvalid('nationality')"
+                            />
+                            <small *ngIf="isFieldInvalid('nationality')" class="text-red-500">
+                                {{ getErrorMessage('nationality') }}
+                            </small>
+                        </div>
+                    </div>
+            
+                    <!-- Row 4 -->
+                    <div class="flex gap-4">
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="phoneNumber">رقم الهاتف</label>
+                            <input 
+                                id="phoneNumber" 
+                                formControlName="phoneNumber" 
+                                class="bg-gray-50 border shadow-md p-1"
+                                [class.border-red-500]="isFieldInvalid('phoneNumber')"
+                            />
+                            <small *ngIf="isFieldInvalid('phoneNumber')" class="text-red-500">
+                                {{ getErrorMessage('phoneNumber') }}
+                            </small>
+                        </div>
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="cvFile">إرفاق السيرة الذاتية</label>
+                            <div class="flex gap-4">
+                                <input 
+                                    id="cvFile" 
+                                    type="file" 
+                                    (change)="onFileChange($event)"
+                                    class="bg-gray-50 border shadow-md p-1"
+                                    [class.border-red-500]="isFieldInvalid('cvFile')"
+                                />
+                                <button type="button" class="border-[#16b4a5] text-[#16b4a5]">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <small *ngIf="isFieldInvalid('cvFile')" class="text-red-500">
+                                {{ getErrorMessage('cvFile') }}
+                            </small>
+                        </div>
+                    </div>
+            
+                    <!-- Row 5 -->
+                    <div class="flex gap-4">
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="password">كلمة المرور</label>
+                            <input 
+                                id="password" 
+                                type="password" 
+                                formControlName="password" 
+                                class="bg-gray-50 border shadow-md p-1"
+                                [class.border-red-500]="isFieldInvalid('password')"
+                            />
+                            <small *ngIf="isFieldInvalid('password')" class="text-red-500">
+                                {{ getErrorMessage('password') }}
+                            </small>
+                        </div>
+                        <div class="grid gap-1">
+                            <label class="text-[#256b5f] font-medium" for="confirmPassword">تأكيد كلمة المرور</label>
+                            <input 
+                                id="confirmPassword" 
+                                type="password" 
+                                formControlName="confirmPassword" 
+                                class="bg-gray-50 border shadow-md p-1"
+                                [class.border-red-500]="isFieldInvalid('confirmPassword')"
+                            />
+                            <small *ngIf="isFieldInvalid('confirmPassword')" class="text-red-500">
+                                {{ getErrorMessage('confirmPassword') }}
+                            </small>
+                        </div>
+                    </div>
+            
+                    <!-- Row 6 -->
+                    <div class="grid gap-1">
+                        <label class="text-[#256b5f] font-medium" for="email">البريد الإلكتروني</label>
+                        <input 
+                            id="email" 
+                            formControlName="email" 
+                            class="bg-gray-50 border shadow-md p-1"
+                            [class.border-red-500]="isFieldInvalid('email')"
+                        />
+                        <small *ngIf="isFieldInvalid('email')" class="text-red-500">
+                            {{ getErrorMessage('email') }}
+                        </small>
+                    </div>
+                </div>
+            
+                <div class="flex items-center justify-center gap-2">
+                    <input 
+                        type="checkbox" 
+                        id="terms" 
+                        formControlName="termsAccepted"
+                        class="border-[#16b4a5] data-[state=checked]:bg-[#16b4a5]" 
+                    />
+                    <label for="terms" class="text-sm text-[#16b4a5]">
+                        أوافق على شروط وكالة المشاريع بأمانة منطقة المدينة المنورة و الخصوصية
+                    </label>
+                </div>
+                <small *ngIf="isFieldInvalid('termsAccepted')" class="text-red-500 text-center block">
+                    {{ getErrorMessage('termsAccepted') }}
+                </small>
+            
+                <div class="flex justify-center">
+                    <button 
+                        type="submit"
+                        class="bg-[#a2e5b9] hover:bg-[#046056] text-lg font-medium text-[#19796f] hover:text-[#ffffff] px-8 py-3 rounded-lg"
+                    >
+                        تسجيل
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
