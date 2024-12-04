@@ -1,5 +1,5 @@
 <div dir="rtl">
-    <main class="max-w-[90vw] mx-auto py-8 px-4">
+    <main class="xl:max-w-[90vw] mx-auto py-8 px-4">
         <div class="px-12 py-6 rounded-[4rem] border-[#16b4a5] border-4">
             <div class="text-center mb-8">
                 <div class="w-12 h-12 bg-[#16b4a5] rounded-full mx-auto flex items-center justify-center">
@@ -12,9 +12,9 @@
             </div>
 
             <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="space-y-6">
-                <div class="grid grid-cols-2 justify-between gap-x-6 gap-y-8">
+                <div class="grid xl:grid-cols-2  justify-center xl:justify-between xl:gap-x-6 gap-y-8">
                     <!-- Row 1 -->
-                    <div class="flex gap-4">
+                    <div class="flex flex-col xl:flex-row xl:gap-4">
                         <div class="grid gap-1">
                             <label class="text-[#256b5f] font-medium" for="engineerName">
                                 اسم المهندس / المهندسة 
@@ -23,7 +23,7 @@
                             <input 
                                 id="engineerName" 
                                 formControlName="engineerName" 
-                                class="bg-gray-50 border shadow-md p-1"
+                                class="w-full bg-gray-50 border shadow-md p-1"
                                 [class.border-red-500]="isFieldInvalid('engineerName')"
                             />
                             <small *ngIf="isFieldInvalid('engineerName')" class="text-red-500">
@@ -35,7 +35,7 @@
                             <input 
                                 id="qualification" 
                                 formControlName="qualification" 
-                                class="bg-gray-50 border shadow-md p-1"
+                                class="w-full bg-gray-50 border shadow-md p-1"
                                 [class.border-red-500]="isFieldInvalid('qualification')"
                             />
                             <small *ngIf="isFieldInvalid('qualification')" class="text-red-500">
@@ -45,13 +45,13 @@
                     </div>
             
                     <!-- Row 2 -->
-                    <div class="flex gap-4">
+                    <div class="flex flex-col xl:flex-row xl:gap-4">
                         <div class="grid gap-1">
                             <label class="text-[#256b5f] font-medium" for="jobTitle">المسمى الوظيفي بالعقد</label>
                             <input 
                                 id="jobTitle" 
                                 formControlName="jobTitle" 
-                                class="bg-gray-50 border shadow-md p-1"
+                                class="w-full bg-gray-50 border shadow-md p-1"
                                 [class.border-red-500]="isFieldInvalid('jobTitle')"
                             />
                             <small *ngIf="isFieldInvalid('jobTitle')" class="text-red-500">
@@ -63,7 +63,7 @@
                             <input 
                                 id="yearsOfExperience" 
                                 formControlName="yearsOfExperience" 
-                                class="bg-gray-50 border shadow-md p-1"
+                                class="w-full bg-gray-50 border shadow-md p-1"
                                 [class.border-red-500]="isFieldInvalid('yearsOfExperience')"
                             />
                             <small *ngIf="isFieldInvalid('yearsOfExperience')" class="text-red-500">
@@ -75,7 +75,7 @@
                             <input 
                                 id="contractNumber" 
                                 formControlName="contractNumber" 
-                                class="bg-gray-50 border shadow-md p-1"
+                                class="w-full bg-gray-50 border shadow-md p-1"
                                 [class.border-red-500]="isFieldInvalid('contractNumber')"
                             />
                             <small *ngIf="isFieldInvalid('contractNumber')" class="text-red-500">
@@ -85,13 +85,13 @@
                     </div>
             
                     <!-- Row 3 -->
-                    <div class="flex gap-4">
+                    <div class="flex flex-col xl:flex-row xl:gap-4">
                         <div class="grid gap-1">
                             <label class="text-[#256b5f] font-medium" for="visualID">رقم الهوية البصرية</label>
                             <input 
                                 id="visualID" 
                                 formControlName="visualID" 
-                                class="bg-gray-50 border shadow-md p-1"
+                                class="w-full bg-gray-50 border shadow-md p-1"
                                 [class.border-red-500]="isFieldInvalid('visualID')"
                             />
                             <small *ngIf="isFieldInvalid('visualID')" class="text-red-500">
@@ -103,7 +103,7 @@
                             <input 
                                 id="nationality" 
                                 formControlName="nationality" 
-                                class="bg-gray-50 border shadow-md p-1"
+                                class="w-full bg-gray-50 border shadow-md p-1"
                                 [class.border-red-500]="isFieldInvalid('nationality')"
                             />
                             <small *ngIf="isFieldInvalid('nationality')" class="text-red-500">
@@ -113,13 +113,13 @@
                     </div>
             
                     <!-- Row 4 -->
-                    <div class="flex gap-4">
+                    <div class="flex flex-col xl:flex-row xl:gap-4">
                         <div class="grid gap-1">
                             <label class="text-[#256b5f] font-medium" for="phoneNumber">رقم الهاتف</label>
                             <input 
                                 id="phoneNumber" 
                                 formControlName="phoneNumber" 
-                                class="bg-gray-50 border shadow-md p-1"
+                                class="w-full bg-gray-50 border shadow-md p-1"
                                 [class.border-red-500]="isFieldInvalid('phoneNumber')"
                             />
                             <small *ngIf="isFieldInvalid('phoneNumber')" class="text-red-500">
@@ -128,12 +128,12 @@
                         </div>
                         <div class="grid gap-1">
                             <label class="text-[#256b5f] font-medium" for="cvFile">إرفاق السيرة الذاتية</label>
-                            <div class="flex gap-4">
+                            <div class="flex flex-col xl:flex-row xl:gap-4">
                                 <input 
                                     id="cvFile" 
                                     type="file" 
                                     (change)="onFileChange($event)"
-                                    class="bg-gray-50 border shadow-md p-1"
+                                    class="w-full bg-gray-50 border shadow-md p-1"
                                     [class.border-red-500]="isFieldInvalid('cvFile')"
                                 />
                                 <button type="button" class="border-[#16b4a5] text-[#16b4a5]">
@@ -150,14 +150,14 @@
                     </div>
             
                     <!-- Row 5 -->
-                    <div class="flex gap-4">
+                    <div class="flex flex-col xl:flex-row xl:gap-4">
                         <div class="grid gap-1">
                             <label class="text-[#256b5f] font-medium" for="password">كلمة المرور</label>
                             <input 
                                 id="password" 
                                 type="password" 
                                 formControlName="password" 
-                                class="bg-gray-50 border shadow-md p-1"
+                                class="w-full bg-gray-50 border shadow-md p-1"
                                 [class.border-red-500]="isFieldInvalid('password')"
                             />
                             <small *ngIf="isFieldInvalid('password')" class="text-red-500">
@@ -170,7 +170,7 @@
                                 id="confirmPassword" 
                                 type="password" 
                                 formControlName="confirmPassword" 
-                                class="bg-gray-50 border shadow-md p-1"
+                                class="w-full bg-gray-50 border shadow-md p-1"
                                 [class.border-red-500]="isFieldInvalid('confirmPassword')"
                             />
                             <small *ngIf="isFieldInvalid('confirmPassword')" class="text-red-500">
@@ -185,7 +185,7 @@
                         <input 
                             id="email" 
                             formControlName="email" 
-                            class="bg-gray-50 border shadow-md p-1"
+                            class="w-full bg-gray-50 border shadow-md p-1"
                             [class.border-red-500]="isFieldInvalid('email')"
                         />
                         <small *ngIf="isFieldInvalid('email')" class="text-red-500">
@@ -194,7 +194,7 @@
                     </div>
                 </div>
             
-                <div class="flex items-center justify-center gap-2">
+                <div class="flex  items-center xl:justify-center gap-2">
                     <input 
                         type="checkbox" 
                         id="terms" 
@@ -209,7 +209,7 @@
                     {{ getErrorMessage('termsAccepted') }}
                 </small>
             
-                <div class="flex justify-center">
+                <div class="flex flex-col xl:flex-row justify-center">
                     <button 
                         type="submit"
                         class="bg-[#a2e5b9] hover:bg-[#046056] text-lg font-medium text-[#19796f] hover:text-[#ffffff] px-8 py-3 rounded-lg"
